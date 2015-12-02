@@ -23,7 +23,7 @@ Much of the **purpose of categorizing things is to codify patterns**—things th
 **Base rules** are the defaults. They are almost exclusively single element selectors but it could include attribute selectors, pseudo-class selectors, child selectors or sibling selectors. Essentially, a base style says that wherever this element is on the page, it should look like \_this\_.
 
 ### Examples of Base Styles
-```
+```css
 html, body, form { margin: 0; padding: 0; }
 input[type=text] { border: 1px solid #999; }
 a { color: #039; }
@@ -63,7 +63,7 @@ There is a distinction between layouts dictating the major and minor components 
 Layout styles can also be divided into major and minor styles based on reuse.
 
 ##### Layout declarations
-```
+```css
 `header, article, footer {
 	width: 960px;
 	margin: auto;
@@ -94,7 +94,7 @@ ie. When we have the same module in different sections. If load order is a fact
 
 *BAD* Styling with generic element
 
-```
+```html
 `<div class="fld">
     <span>Folder Name</span>
     <span>(32 items)</span>
@@ -102,21 +102,21 @@ ie. When we have the same module in different sections. If load order is a fact
 ```
 `
 *GOOD* Styling with generic element
-```
-`<div class="fld">
+```html
+<div class="fld">
     <span class="fld-name">Folder Name</span>
     <span class="fld-items">(32 items)</span>
 </div>
 ```
-`
+
 ## [State Rules](http://smacss.com/book/type-state)
 
 A state is something that augments and overrides all other styles. A state is something that augments and overrides all other styles.
 
 ### State applied to an element
 
-```
-`<div id="header" class="is-collapsed">
+```html
+<div id="header" class="is-collapsed">
     <form>
         <div class="msg is-error">
             There is an error!
@@ -126,7 +126,7 @@ A state is something that augments and overrides all other styles. A state is s
     </form>
 </div>
 ```
-`
+
 How state styles are different from module styles:
 
 1. State styles can apply to layout and/or module styles; and
@@ -144,8 +144,8 @@ A theme defines colours and images that give your application or site its look a
 
 ### Module Theming
 
-```
-`// in module-name.css
+```css
+// in module-name.css
 .mod {
 	border: 1px solid;
 }
@@ -155,8 +155,6 @@ A theme defines colours and images that give your application or site its look a
 	border-color: blue;
 }
 ```
-`
-  
 
 **Typography**  
 
@@ -181,17 +179,18 @@ Thinking about your interface not only modularly but as a representation of thos
 HTML is like a tree structure of parents and children. The depth of applicability is the number of generations that are affected by a given rule. 
 
 ```
-`// depth of applicability of 6 generations
+// depth of applicability of 6 generations
 body.article \> #main \> #content \> #intro \> p \> b
 // the depth is still the same: 6 generations
 .article #intro b
 ```
-`The problem with such a depth is that it enforces a **much greater dependency on a particular HTML structure.**   
+
+The problem with such a depth is that it enforces a **much greater dependency on a particular HTML structure.**   
 
 ##### Duplication of rules
 
-```
-`# sidebar div, #footer div {
+```css
+# sidebar div, #footer div {
 	border: 1px solid #333;
 }
 
@@ -203,11 +202,11 @@ body.article \> #main \> #content \> #intro \> p \> b
 	margin-bottom: 5px;
 }
 ```
-`
+
 ##### Simplification of rules
 
-```
-`.pod {
+```css
+.pod {
 	border: 1px solid #333;
 }
 
@@ -219,11 +218,11 @@ body.article \> #main \> #content \> #intro \> p \> b
 	margin-bottom: 5px;
 }
 ```
-`
+
 ##### Duplication of rules
 
-```
-`.pod \> ul, .pod \> ol, .pod \> div {
+```css
+.pod \> ul, .pod \> ol, .pod \> div {
 	margin-bottom: 5px;
 }
 
@@ -233,7 +232,7 @@ body.article \> #main \> #content \> #intro \> p \> b
 	margin-bottom: 5px;
 }
 ```
-`
+
 ## [Selector Performance](http://smacss.com/book/selectors)
 
 **How CSS gets evaluated**
