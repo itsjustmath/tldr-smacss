@@ -24,12 +24,12 @@ Much of the **purpose of categorizing things is to codify patterns**—things th
 
 ### Examples of Base Styles
 ```
-`html, body, form { margin: 0; padding: 0; }
+html, body, form { margin: 0; padding: 0; }
 input[type=text] { border: 1px solid #999; }
 a { color: #039; }
 a:hover { color: #03C; }
 ```
-`
+
 **Layout rules** divide the page into sections. Layouts hold one or more modules together.
 
 **Modules** (or components) are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.
